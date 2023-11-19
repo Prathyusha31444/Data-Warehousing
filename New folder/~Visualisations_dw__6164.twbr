@@ -1,0 +1,2306 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20224.22.1117.1841                               -->
+<workbook original-version='18.1' source-build='2022.4.0 (20224.22.1117.1841)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AccessibleZoneTabOrder.true...AccessibleZoneTabOrder />
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Sales Across Countries' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;NA Sales&quot;'>
+        <calculation class='tableau' formula='&quot;NA Sales&quot;' />
+        <members>
+          <member value='&quot;NA Sales&quot;' />
+          <member value='&quot;JP Sales&quot;' />
+          <member value='&quot;Other Sales&quot;' />
+          <member value='&quot;EU Sales&quot;' />
+          <member value='&quot;Global Sales&quot;' />
+        </members>
+      </column>
+    </datasource>
+    <datasource caption='game_reviews+' inline='true' name='federated.0ay1jk104t6aif146fcks1npqv63' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='game_reviews' name='textscan.0hukxqx0q63yz619u4buj1elmz4n'>
+            <connection class='textscan' directory='Data/New folder' filename='game_reviews.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.0hukxqx0q63yz619u4buj1elmz4n' name='game_reviews.csv' table='[game_reviews#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='string' name='Name' ordinal='1' />
+            <column datatype='real' name='Critic_Score' ordinal='2' />
+            <column datatype='real' name='User_Score' ordinal='3' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='textscan.0hukxqx0q63yz619u4buj1elmz4n' name='game_sales.csv' table='[game_sales#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='Name' ordinal='0' />
+              <column datatype='string' name='Platform' ordinal='1' />
+              <column datatype='string' name='Publisher' ordinal='2' />
+              <column datatype='string' name='Developer' ordinal='3' />
+              <column datatype='real' name='Total_Shipped' ordinal='4' />
+              <column datatype='date' date-parse-format='yyyy' name='Year' ordinal='5' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0hukxqx0q63yz619u4buj1elmz4n' name='game_reviews.csv' table='[game_reviews#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='F1' ordinal='0' />
+              <column datatype='string' name='Name' ordinal='1' />
+              <column datatype='real' name='Critic_Score' ordinal='2' />
+              <column datatype='real' name='User_Score' ordinal='3' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0hukxqx0q63yz619u4buj1elmz4n' name='top_critic_scores.csv' table='[top_critic_scores#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='date' date-parse-format='yyyy' name='year' ordinal='0' />
+              <column datatype='real' name='avg_critic_score' ordinal='1' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0hukxqx0q63yz619u4buj1elmz4n' name='top_critic_scores_more_than_four_games.csv' table='[top_critic_scores_more_than_four_games#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='date' date-parse-format='yyyy' name='year' ordinal='0' />
+              <column datatype='integer' name='num_games' ordinal='1' />
+              <column datatype='real' name='avg_critic_score' ordinal='2' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0hukxqx0q63yz619u4buj1elmz4n' name='top_user_scores_more_than_four_games.csv' table='[top_user_scores_more_than_four_games#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='date' date-parse-format='yyyy' name='year' ordinal='0' />
+              <column datatype='integer' name='num_games' ordinal='1' />
+              <column datatype='real' name='avg_user_score' ordinal='2' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0hukxqx0q63yz619u4buj1elmz4n' name='vgsales.csv' table='[vgsales#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='F1' ordinal='0' />
+              <column datatype='integer' name='Unnamed: 0.1' ordinal='1' />
+              <column datatype='integer' name='Unnamed: 0' ordinal='2' />
+              <column datatype='integer' name='Rank' ordinal='3' />
+              <column datatype='string' name='Game' ordinal='4' />
+              <column datatype='string' name='Platform' ordinal='5' />
+              <column datatype='date' name='Year' ordinal='6' />
+              <column datatype='string' name='Genre' ordinal='7' />
+              <column datatype='string' name='Publisher' ordinal='8' />
+              <column datatype='real' name='NA_Sales' ordinal='9' />
+              <column datatype='real' name='EU_Sales' ordinal='10' />
+              <column datatype='real' name='JP_Sales' ordinal='11' />
+              <column datatype='real' name='Other_Sales' ordinal='12' />
+              <column datatype='real' name='Global_Sales' ordinal='13' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[Critic_Score]' value='[game_reviews.csv].[Critic_Score]' />
+          <map key='[Developer]' value='[game_sales.csv].[Developer]' />
+          <map key='[EU_Sales]' value='[vgsales.csv].[EU_Sales]' />
+          <map key='[F1 (vgsales.csv)]' value='[vgsales.csv].[F1]' />
+          <map key='[F1]' value='[game_reviews.csv].[F1]' />
+          <map key='[Game]' value='[vgsales.csv].[Game]' />
+          <map key='[Genre]' value='[vgsales.csv].[Genre]' />
+          <map key='[Global_Sales]' value='[vgsales.csv].[Global_Sales]' />
+          <map key='[JP_Sales]' value='[vgsales.csv].[JP_Sales]' />
+          <map key='[NA_Sales]' value='[vgsales.csv].[NA_Sales]' />
+          <map key='[Name (game_reviews.csv)]' value='[game_reviews.csv].[Name]' />
+          <map key='[Name]' value='[game_sales.csv].[Name]' />
+          <map key='[Other_Sales]' value='[vgsales.csv].[Other_Sales]' />
+          <map key='[Platform (vgsales.csv)]' value='[vgsales.csv].[Platform]' />
+          <map key='[Platform]' value='[game_sales.csv].[Platform]' />
+          <map key='[Publisher (vgsales.csv)]' value='[vgsales.csv].[Publisher]' />
+          <map key='[Publisher]' value='[game_sales.csv].[Publisher]' />
+          <map key='[Rank]' value='[vgsales.csv].[Rank]' />
+          <map key='[Total_Shipped]' value='[game_sales.csv].[Total_Shipped]' />
+          <map key='[Unnamed: 0.1]' value='[vgsales.csv].[Unnamed: 0.1]' />
+          <map key='[Unnamed: 0]' value='[vgsales.csv].[Unnamed: 0]' />
+          <map key='[User_Score]' value='[game_reviews.csv].[User_Score]' />
+          <map key='[Year (vgsales.csv)]' value='[vgsales.csv].[Year]' />
+          <map key='[Year]' value='[game_sales.csv].[Year]' />
+          <map key='[avg_critic_score (top_critic_scores_more_than_four_games.csv)]' value='[top_critic_scores_more_than_four_games.csv].[avg_critic_score]' />
+          <map key='[avg_critic_score]' value='[top_critic_scores.csv].[avg_critic_score]' />
+          <map key='[avg_user_score]' value='[top_user_scores_more_than_four_games.csv].[avg_user_score]' />
+          <map key='[num_games (top_user_scores_more_than_four_games.csv)]' value='[top_user_scores_more_than_four_games.csv].[num_games]' />
+          <map key='[num_games]' value='[top_critic_scores_more_than_four_games.csv].[num_games]' />
+          <map key='[year (top_critic_scores_more_than_four_games.csv)]' value='[top_critic_scores_more_than_four_games.csv].[year]' />
+          <map key='[year (top_user_scores_more_than_four_games.csv)]' value='[top_user_scores_more_than_four_games.csv].[year]' />
+          <map key='[year]' value='[top_critic_scores.csv].[year]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[game_sales.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Name]</local-name>
+            <parent-name>[game_sales.csv]</parent-name>
+            <remote-alias>Name</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Platform</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Platform]</local-name>
+            <parent-name>[game_sales.csv]</parent-name>
+            <remote-alias>Platform</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Publisher</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Publisher]</local-name>
+            <parent-name>[game_sales.csv]</parent-name>
+            <remote-alias>Publisher</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Developer</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Developer]</local-name>
+            <parent-name>[game_sales.csv]</parent-name>
+            <remote-alias>Developer</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Total_Shipped</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Total_Shipped]</local-name>
+            <parent-name>[game_sales.csv]</parent-name>
+            <remote-alias>Total_Shipped</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Year]</local-name>
+            <parent-name>[game_sales.csv]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[game_reviews.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[game_reviews.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Name (game_reviews.csv)]</local-name>
+            <parent-name>[game_reviews.csv]</parent-name>
+            <remote-alias>Name</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Critic_Score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Critic_Score]</local-name>
+            <parent-name>[game_reviews.csv]</parent-name>
+            <remote-alias>Critic_Score</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>User_Score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[User_Score]</local-name>
+            <parent-name>[game_reviews.csv]</parent-name>
+            <remote-alias>User_Score</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[top_critic_scores.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[year]</local-name>
+            <parent-name>[top_critic_scores.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_critic_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_critic_score]</local-name>
+            <parent-name>[top_critic_scores.csv]</parent-name>
+            <remote-alias>avg_critic_score</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[top_critic_scores_more_than_four_games.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[year (top_critic_scores_more_than_four_games.csv)]</local-name>
+            <parent-name>[top_critic_scores_more_than_four_games.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_games</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_games]</local-name>
+            <parent-name>[top_critic_scores_more_than_four_games.csv]</parent-name>
+            <remote-alias>num_games</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_critic_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_critic_score (top_critic_scores_more_than_four_games.csv)]</local-name>
+            <parent-name>[top_critic_scores_more_than_four_games.csv]</parent-name>
+            <remote-alias>avg_critic_score</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[top_user_scores_more_than_four_games.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[year (top_user_scores_more_than_four_games.csv)]</local-name>
+            <parent-name>[top_user_scores_more_than_four_games.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_games</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_games (top_user_scores_more_than_four_games.csv)]</local-name>
+            <parent-name>[top_user_scores_more_than_four_games.csv]</parent-name>
+            <remote-alias>num_games</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_user_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_user_score]</local-name>
+            <parent-name>[top_user_scores_more_than_four_games.csv]</parent-name>
+            <remote-alias>avg_user_score</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[vgsales.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1 (vgsales.csv)]</local-name>
+            <parent-name>[vgsales.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Unnamed: 0.1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Unnamed: 0.1]</local-name>
+            <parent-name>[vgsales.csv]</parent-name>
+            <remote-alias>Unnamed: 0.1</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Unnamed: 0</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Unnamed: 0]</local-name>
+            <parent-name>[vgsales.csv]</parent-name>
+            <remote-alias>Unnamed: 0</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Rank</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Rank]</local-name>
+            <parent-name>[vgsales.csv]</parent-name>
+            <remote-alias>Rank</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Game</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Game]</local-name>
+            <parent-name>[vgsales.csv]</parent-name>
+            <remote-alias>Game</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Platform</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Platform (vgsales.csv)]</local-name>
+            <parent-name>[vgsales.csv]</parent-name>
+            <remote-alias>Platform</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[Year (vgsales.csv)]</local-name>
+            <parent-name>[vgsales.csv]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Genre</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Genre]</local-name>
+            <parent-name>[vgsales.csv]</parent-name>
+            <remote-alias>Genre</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Publisher</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Publisher (vgsales.csv)]</local-name>
+            <parent-name>[vgsales.csv]</parent-name>
+            <remote-alias>Publisher</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NA_Sales</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[NA_Sales]</local-name>
+            <parent-name>[vgsales.csv]</parent-name>
+            <remote-alias>NA_Sales</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>EU_Sales</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[EU_Sales]</local-name>
+            <parent-name>[vgsales.csv]</parent-name>
+            <remote-alias>EU_Sales</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>JP_Sales</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[JP_Sales]</local-name>
+            <parent-name>[vgsales.csv]</parent-name>
+            <remote-alias>JP_Sales</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Other_Sales</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Other_Sales]</local-name>
+            <parent-name>[vgsales.csv]</parent-name>
+            <remote-alias>Other_Sales</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Global_Sales</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Global_Sales]</local-name>
+            <parent-name>[vgsales.csv]</parent-name>
+            <remote-alias>Global_Sales</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Sales' datatype='real' name='[Calculation_433752959313432577]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='case [Parameters].[Parameter 1]&#13;&#10;when &quot;EU Sales&quot; then [EU_Sales]&#13;&#10;when &quot;JP Sales&quot; Then [JP_Sales]&#13;&#10;when &quot;NA Sales&quot; then [NA_Sales]&#13;&#10;when &quot;other Sales&quot; then [Other_Sales]&#13;&#10;when &quot;Global Sales&quot; then [Global_Sales]&#13;&#10;END' />
+      </column>
+      <column caption='Critic Score' datatype='real' name='[Critic_Score]' role='measure' type='quantitative' />
+      <column datatype='string' name='[Developer]' role='dimension' type='nominal' />
+      <column caption='EU Sales' datatype='real' name='[EU_Sales]' role='measure' type='quantitative' />
+      <column datatype='string' name='[Genre]' role='dimension' type='nominal' />
+      <column caption='Global Sales' datatype='real' name='[Global_Sales]' role='measure' type='quantitative' />
+      <column caption='JP Sales' datatype='real' name='[JP_Sales]' role='measure' type='quantitative' />
+      <column caption='NA Sales' datatype='real' name='[NA_Sales]' role='measure' type='quantitative' />
+      <column caption='Name (game reviews.csv)' datatype='string' name='[Name (game_reviews.csv)]' role='dimension' type='nominal' />
+      <column caption='Other Sales' datatype='real' name='[Other_Sales]' role='measure' type='quantitative' />
+      <column datatype='string' name='[Platform (vgsales.csv)]' role='dimension' type='nominal' />
+      <column datatype='string' name='[Platform]' role='dimension' type='nominal' />
+      <column caption='Total Shipped' datatype='real' name='[Total_Shipped]' role='measure' type='quantitative' />
+      <column caption='User Score' datatype='real' name='[User_Score]' role='measure' type='quantitative' />
+      <column datatype='date' name='[Year (vgsales.csv)]' role='dimension' type='quantitative' />
+      <column datatype='date' name='[Year]' role='dimension' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='game_reviews.csv' datatype='table' name='[__tableau_internal_object_id__].[game_reviews.csv_8E5B7C9FAC0C4F4BBF5AA4D2617166DD]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='game_sales.csv' datatype='table' name='[__tableau_internal_object_id__].[game_sales.csv_85F710AA4E6F443CB2DB7748041BF138]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='top_critic_scores.csv' datatype='table' name='[__tableau_internal_object_id__].[top_critic_scores.csv_CF5177A5CFAC41A098CA87AD7EFF1D02]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='top_critic_scores_more_than_four_games.csv' datatype='table' name='[__tableau_internal_object_id__].[top_critic_scores_more_than_four_games.csv_75F006BD3D4D46B7A8972A9381E0D5FE]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='top_user_scores_more_than_four_games.csv' datatype='table' name='[__tableau_internal_object_id__].[top_user_scores_more_than_four_games.csv_37CAD0F09C3642FF926F6AD56F893FC9]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='vgsales.csv' datatype='table' name='[__tableau_internal_object_id__].[vgsales.csv_A14345F5A38F40A6B585E652CFF9ECB1]' role='measure' type='quantitative' />
+      <column caption='Avg Critic Score (Top Critic Scores More Than Four Games.Csv)' datatype='real' name='[avg_critic_score (top_critic_scores_more_than_four_games.csv)]' role='measure' type='quantitative' />
+      <column caption='Avg Critic Score' datatype='real' name='[avg_critic_score]' role='measure' type='quantitative' />
+      <column caption='Avg User Score' datatype='real' name='[avg_user_score]' role='measure' type='quantitative' />
+      <column caption='Num Games (Top User Scores More Than Four Games.Csv)' datatype='integer' name='[num_games (top_user_scores_more_than_four_games.csv)]' role='measure' type='quantitative' />
+      <column caption='Num Games' datatype='integer' name='[num_games]' role='measure' type='quantitative' />
+      <column caption='Year (Top Critic Scores More Than Four Games.Csv)' datatype='date' name='[year (top_critic_scores_more_than_four_games.csv)]' role='dimension' type='quantitative' />
+      <column caption='Year (Top User Scores More Than Four Games.Csv)' datatype='date' name='[year (top_user_scores_more_than_four_games.csv)]' role='dimension' type='quantitative' />
+      <column caption='Year1' datatype='date' name='[year]' role='dimension' type='quantitative' />
+      <column-instance column='[Developer]' derivation='None' name='[none:Developer:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Genre]' derivation='None' name='[none:Genre:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Platform (vgsales.csv)]' derivation='None' name='[none:Platform (vgsales.csv):nk]' pivot='key' type='nominal' />
+      <column-instance column='[Platform]' derivation='None' name='[none:Platform:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Global_Sales]' derivation='Sum' name='[pcto:sum:Global_Sales:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Critic_Score]' derivation='Sum' name='[sum:Critic_Score:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[EU_Sales]' derivation='Sum' name='[sum:EU_Sales:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Global_Sales]' derivation='Sum' name='[sum:Global_Sales:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[JP_Sales]' derivation='Sum' name='[sum:JP_Sales:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[User_Score]' derivation='Sum' name='[sum:User_Score:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Year]' derivation='Year-Trunc' name='[tyr:Year:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[Year]' derivation='Year' name='[yr:Year:ok]' pivot='key' type='ordinal' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0ay1jk104t6aif146fcks1npqv63].[sum:EU_Sales:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.0ay1jk104t6aif146fcks1npqv63].[sum:User_Score:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.0ay1jk104t6aif146fcks1npqv63].[sum:Critic_Score:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.0ay1jk104t6aif146fcks1npqv63].[sum:JP_Sales:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0ay1jk104t6aif146fcks1npqv63].[pcto:sum:Global_Sales:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0ay1jk104t6aif146fcks1npqv63].[sum:Global_Sales:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Platform (vgsales.csv):nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;GEN&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;X360&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;3DO&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;PSV&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;DS&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;TG16&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;NG&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;GG&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;XB&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;GB&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Wii&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;PS4&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;3DS&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;SAT&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;PS2&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;GBA&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;WiiU&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;PC&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;PCFX&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;PS3&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;PSP&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;N64&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;XOne&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;GC&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;WS&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;2600&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;SCD&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;PS&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;NES&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;DC&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;SNES&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Platform:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;GEN&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;WiiU&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;GB&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;PC&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;N64&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;GBA&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;SNES&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;3DS&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;X360&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;PS4&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;GBC&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;PS&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;PS2&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;PSP&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Wii&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;NES&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;GC&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;2600&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;XB&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;PS3&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;NS&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;DS&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;XOne&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Genre:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;Shooter&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Action&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Platform&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Simulation&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Puzzle&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Adventure&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Racing&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Sports&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Role-Playing&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Fighting&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Strategy&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Misc&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[tyr:Year:ok]' type='palette'>
+            <map to='#499894'>
+              <bucket>#1992-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>#2012-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>#1981-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>#2004-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>#1988-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>#2008-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>#1996-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>#2016-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>#1993-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>#2013-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>#1989-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>#2009-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>#2002-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>#1982-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>#2005-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>#2000-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>#2020-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>#1990-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>#2010-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>#1997-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>#2017-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>#1998-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>#2018-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>#2001-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>#2003-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>#1994-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>#2014-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>#1991-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>#2011-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>#1985-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>#2006-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>#1999-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>#2019-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>#1995-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>#2015-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>#1987-01-01 00:00:00#</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>#2007-01-01 00:00:00#</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Developer:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;AlphaDream Corporation&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;EA Canada&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;ChunSoft&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Nintendo EAD&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Capcom&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Naughty Dog&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;Hudson Soft&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;Rockstar North&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;GREZZO&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Nintendo R&amp;D1&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Intelligent Systems&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Treyarch&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Bullet Proof Software&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Infinity Ward&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;Nintendo EPD&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Bandai Namco Games&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Game Freak&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;HAL Laboratory&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;Polyphony Digital&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[yr:Year:ok]' type='palette'>
+            <map to='#499894'>
+              <bucket>1994</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>2014</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>1985</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>2006</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>1990</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>2010</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>1998</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>2018</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>1995</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>2015</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>1991</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>2011</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>2004</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>1981</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>1987</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>2007</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>2002</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>1992</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>2012</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>1999</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>2019</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>2000</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>2020</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>2003</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>2005</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>1996</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>2016</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>1993</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>2013</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>1982</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>1988</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>2008</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>2001</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>1997</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>2017</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>1989</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>2009</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Sales Across Countries' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;NA Sales&quot;'>
+          <calculation class='tableau' formula='&quot;NA Sales&quot;' />
+        </column>
+      </datasource-dependencies>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='game_reviews.csv' id='game_reviews.csv_8E5B7C9FAC0C4F4BBF5AA4D2617166DD'>
+            <properties context=''>
+              <relation connection='textscan.0hukxqx0q63yz619u4buj1elmz4n' name='game_reviews.csv' table='[game_reviews#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='F1' ordinal='0' />
+                  <column datatype='string' name='Name' ordinal='1' />
+                  <column datatype='real' name='Critic_Score' ordinal='2' />
+                  <column datatype='real' name='User_Score' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='game_sales.csv' id='game_sales.csv_85F710AA4E6F443CB2DB7748041BF138'>
+            <properties context=''>
+              <relation connection='textscan.0hukxqx0q63yz619u4buj1elmz4n' name='game_sales.csv' table='[game_sales#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='Name' ordinal='0' />
+                  <column datatype='string' name='Platform' ordinal='1' />
+                  <column datatype='string' name='Publisher' ordinal='2' />
+                  <column datatype='string' name='Developer' ordinal='3' />
+                  <column datatype='real' name='Total_Shipped' ordinal='4' />
+                  <column datatype='date' date-parse-format='yyyy' name='Year' ordinal='5' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='top_critic_scores.csv' id='top_critic_scores.csv_CF5177A5CFAC41A098CA87AD7EFF1D02'>
+            <properties context=''>
+              <relation connection='textscan.0hukxqx0q63yz619u4buj1elmz4n' name='top_critic_scores.csv' table='[top_critic_scores#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='date' date-parse-format='yyyy' name='year' ordinal='0' />
+                  <column datatype='real' name='avg_critic_score' ordinal='1' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='top_critic_scores_more_than_four_games.csv' id='top_critic_scores_more_than_four_games.csv_75F006BD3D4D46B7A8972A9381E0D5FE'>
+            <properties context=''>
+              <relation connection='textscan.0hukxqx0q63yz619u4buj1elmz4n' name='top_critic_scores_more_than_four_games.csv' table='[top_critic_scores_more_than_four_games#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='date' date-parse-format='yyyy' name='year' ordinal='0' />
+                  <column datatype='integer' name='num_games' ordinal='1' />
+                  <column datatype='real' name='avg_critic_score' ordinal='2' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='top_user_scores_more_than_four_games.csv' id='top_user_scores_more_than_four_games.csv_37CAD0F09C3642FF926F6AD56F893FC9'>
+            <properties context=''>
+              <relation connection='textscan.0hukxqx0q63yz619u4buj1elmz4n' name='top_user_scores_more_than_four_games.csv' table='[top_user_scores_more_than_four_games#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='date' date-parse-format='yyyy' name='year' ordinal='0' />
+                  <column datatype='integer' name='num_games' ordinal='1' />
+                  <column datatype='real' name='avg_user_score' ordinal='2' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='vgsales.csv' id='vgsales.csv_A14345F5A38F40A6B585E652CFF9ECB1'>
+            <properties context=''>
+              <relation connection='textscan.0hukxqx0q63yz619u4buj1elmz4n' name='vgsales.csv' table='[vgsales#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='F1' ordinal='0' />
+                  <column datatype='integer' name='Unnamed: 0.1' ordinal='1' />
+                  <column datatype='integer' name='Unnamed: 0' ordinal='2' />
+                  <column datatype='integer' name='Rank' ordinal='3' />
+                  <column datatype='string' name='Game' ordinal='4' />
+                  <column datatype='string' name='Platform' ordinal='5' />
+                  <column datatype='date' name='Year' ordinal='6' />
+                  <column datatype='string' name='Genre' ordinal='7' />
+                  <column datatype='string' name='Publisher' ordinal='8' />
+                  <column datatype='real' name='NA_Sales' ordinal='9' />
+                  <column datatype='real' name='EU_Sales' ordinal='10' />
+                  <column datatype='real' name='JP_Sales' ordinal='11' />
+                  <column datatype='real' name='Other_Sales' ordinal='12' />
+                  <column datatype='real' name='Global_Sales' ordinal='13' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[Name]' />
+              <expression op='[Name (game_reviews.csv)]' />
+            </expression>
+            <first-end-point object-id='game_sales.csv_85F710AA4E6F443CB2DB7748041BF138' />
+            <second-end-point object-id='game_reviews.csv_8E5B7C9FAC0C4F4BBF5AA4D2617166DD' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[Year]' />
+              <expression op='[year]' />
+            </expression>
+            <first-end-point object-id='game_sales.csv_85F710AA4E6F443CB2DB7748041BF138' />
+            <second-end-point object-id='top_critic_scores.csv_CF5177A5CFAC41A098CA87AD7EFF1D02' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[Year]' />
+              <expression op='[year (top_critic_scores_more_than_four_games.csv)]' />
+            </expression>
+            <first-end-point object-id='game_sales.csv_85F710AA4E6F443CB2DB7748041BF138' />
+            <second-end-point object-id='top_critic_scores_more_than_four_games.csv_75F006BD3D4D46B7A8972A9381E0D5FE' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[Year]' />
+              <expression op='[year (top_user_scores_more_than_four_games.csv)]' />
+            </expression>
+            <first-end-point object-id='game_sales.csv_85F710AA4E6F443CB2DB7748041BF138' />
+            <second-end-point object-id='top_user_scores_more_than_four_games.csv_37CAD0F09C3642FF926F6AD56F893FC9' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[Publisher]' />
+              <expression op='[Publisher (vgsales.csv)]' />
+            </expression>
+            <first-end-point object-id='game_sales.csv_85F710AA4E6F443CB2DB7748041BF138' />
+            <second-end-point object-id='vgsales.csv_A14345F5A38F40A6B585E652CFF9ECB1' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <actions>
+    <action caption='Filter 1 (generated)' name='[Action1_FA4FCCDB3FAE4C72B6DDD63D8D99DF4A]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Dashboard 1' type='sheet' worksheet='Total Sales by years &amp; Genres' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Dashboard 1' />
+      </command>
+    </action>
+    <action caption='Filter 3 (generated)' name='[Action3_6EB70DB0A13144908D9DE8F905CCFE97]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Dashboard 1' type='sheet' worksheet='Top 10 Sales by Genre' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Dashboard 1' />
+      </command>
+    </action>
+    <action caption='Filter 2 (generated)' name='[Action4_0D8BB116684A486499BE82F4B2F49FE9]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Dashboard 1' type='sheet' worksheet='Global sales across Platform' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Dashboard 1' />
+      </command>
+    </action>
+    <action caption='Filter 4 (generated)' name='[Action4_3270A417D9934E13A8DFDEE7A7292029]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Dashboard 1' type='sheet' worksheet='Top 5 publisher across global sales ' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Dashboard 1' />
+      </command>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet name='Global sales across Platform'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Global Sales across Platforms</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='game_reviews+' name='federated.0ay1jk104t6aif146fcks1npqv63' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Sales Across Countries' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;NA Sales&quot;'>
+              <calculation class='tableau' formula='&quot;NA Sales&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0ay1jk104t6aif146fcks1npqv63'>
+            <column caption='Sales' datatype='real' name='[Calculation_433752959313432577]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='case [Parameters].[Parameter 1]&#13;&#10;when &quot;EU Sales&quot; then [EU_Sales]&#13;&#10;when &quot;JP Sales&quot; Then [JP_Sales]&#13;&#10;when &quot;NA Sales&quot; then [NA_Sales]&#13;&#10;when &quot;other Sales&quot; then [Other_Sales]&#13;&#10;when &quot;Global Sales&quot; then [Global_Sales]&#13;&#10;END' />
+            </column>
+            <column caption='EU Sales' datatype='real' name='[EU_Sales]' role='measure' type='quantitative' />
+            <column caption='Global Sales' datatype='real' name='[Global_Sales]' role='measure' type='quantitative' />
+            <column caption='JP Sales' datatype='real' name='[JP_Sales]' role='measure' type='quantitative' />
+            <column caption='NA Sales' datatype='real' name='[NA_Sales]' role='measure' type='quantitative' />
+            <column caption='Other Sales' datatype='real' name='[Other_Sales]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Platform]' role='dimension' type='nominal' />
+            <column-instance column='[Platform]' derivation='None' name='[none:Platform:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_433752959313432577]' derivation='Sum' name='[sum:Calculation_433752959313432577:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Platform:nk]'>
+            <groupfilter count='10' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='SUM([Global_Sales])' function='order' user:ui-marker='order'>
+                <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+                  <groupfilter function='level-members' level='[none:Platform:nk]' />
+                  <groupfilter function='member' level='[none:Platform:nk]' member='%null%' />
+                </groupfilter>
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0ay1jk104t6aif146fcks1npqv63].[none:Platform:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <color column='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Platform:nk]' />
+              <size column='[federated.0ay1jk104t6aif146fcks1npqv63].[sum:Calculation_433752959313432577:qk]' />
+              <text column='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Platform:nk]' />
+              <text column='[federated.0ay1jk104t6aif146fcks1npqv63].[sum:Calculation_433752959313432577:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{30C2F6E7-35DF-49B3-A460-40AEC0520B5E}' />
+    </worksheet>
+    <worksheet name='Number of Games launced over the years'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='game_reviews+' name='federated.0ay1jk104t6aif146fcks1npqv63' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0ay1jk104t6aif146fcks1npqv63'>
+            <column datatype='string' name='[Game]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Year]' role='dimension' type='quantitative' />
+            <column-instance column='[Game]' derivation='CountD' name='[ctd:Game:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Year]' derivation='Year-Trunc' name='[tyr:Year:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Year]' derivation='Year-Trunc' name='[tyr:Year:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.0ay1jk104t6aif146fcks1npqv63].[tyr:Year:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.0ay1jk104t6aif146fcks1npqv63].[tyr:Year:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0ay1jk104t6aif146fcks1npqv63].[ctd:Game:qk]' palette='blue_teal_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='alternate-text' field='[federated.0ay1jk104t6aif146fcks1npqv63].[ctd:Game:qk]' value='' />
+            <format attr='display-alternate-text' field='[federated.0ay1jk104t6aif146fcks1npqv63].[ctd:Game:qk]' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0ay1jk104t6aif146fcks1npqv63].[ctd:Game:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0ay1jk104t6aif146fcks1npqv63].[ctd:Game:qk]</rows>
+        <cols>[federated.0ay1jk104t6aif146fcks1npqv63].[tyr:Year:ok]</cols>
+      </table>
+      <simple-id uuid='{330CD1E6-2BCD-4D4E-80B2-2FCD22907DB1}' />
+    </worksheet>
+    <worksheet name='Top 10 Sales by Genre'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='game_reviews+' name='federated.0ay1jk104t6aif146fcks1npqv63' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Sales Across Countries' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;NA Sales&quot;'>
+              <calculation class='tableau' formula='&quot;NA Sales&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0ay1jk104t6aif146fcks1npqv63'>
+            <column caption='Sales' datatype='real' name='[Calculation_433752959313432577]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='case [Parameters].[Parameter 1]&#13;&#10;when &quot;EU Sales&quot; then [EU_Sales]&#13;&#10;when &quot;JP Sales&quot; Then [JP_Sales]&#13;&#10;when &quot;NA Sales&quot; then [NA_Sales]&#13;&#10;when &quot;other Sales&quot; then [Other_Sales]&#13;&#10;when &quot;Global Sales&quot; then [Global_Sales]&#13;&#10;END' />
+            </column>
+            <column caption='EU Sales' datatype='real' name='[EU_Sales]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Genre]' role='dimension' type='nominal' />
+            <column caption='Global Sales' datatype='real' name='[Global_Sales]' role='measure' type='quantitative' />
+            <column caption='JP Sales' datatype='real' name='[JP_Sales]' role='measure' type='quantitative' />
+            <column caption='NA Sales' datatype='real' name='[NA_Sales]' role='measure' type='quantitative' />
+            <column caption='Other Sales' datatype='real' name='[Other_Sales]' role='measure' type='quantitative' />
+            <column-instance column='[Genre]' derivation='None' name='[none:Genre:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_433752959313432577]' derivation='Sum' name='[sum:Calculation_433752959313432577:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Genre:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0ay1jk104t6aif146fcks1npqv63].[sum:Calculation_433752959313432577:qk]</rows>
+        <cols>[federated.0ay1jk104t6aif146fcks1npqv63].[none:Genre:nk]</cols>
+      </table>
+      <simple-id uuid='{5DBA728B-91C9-4FA5-8C45-3882F7380CBF}' />
+    </worksheet>
+    <worksheet name='Top 5 publisher across global sales '>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='game_reviews+' name='federated.0ay1jk104t6aif146fcks1npqv63' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Sales Across Countries' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;NA Sales&quot;'>
+              <calculation class='tableau' formula='&quot;NA Sales&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0ay1jk104t6aif146fcks1npqv63'>
+            <column caption='Sales' datatype='real' name='[Calculation_433752959313432577]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='case [Parameters].[Parameter 1]&#13;&#10;when &quot;EU Sales&quot; then [EU_Sales]&#13;&#10;when &quot;JP Sales&quot; Then [JP_Sales]&#13;&#10;when &quot;NA Sales&quot; then [NA_Sales]&#13;&#10;when &quot;other Sales&quot; then [Other_Sales]&#13;&#10;when &quot;Global Sales&quot; then [Global_Sales]&#13;&#10;END' />
+            </column>
+            <column caption='EU Sales' datatype='real' name='[EU_Sales]' role='measure' type='quantitative' />
+            <column caption='Global Sales' datatype='real' name='[Global_Sales]' role='measure' type='quantitative' />
+            <column caption='JP Sales' datatype='real' name='[JP_Sales]' role='measure' type='quantitative' />
+            <column caption='NA Sales' datatype='real' name='[NA_Sales]' role='measure' type='quantitative' />
+            <column caption='Other Sales' datatype='real' name='[Other_Sales]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Publisher (vgsales.csv)]' role='dimension' type='nominal' />
+            <column-instance column='[Publisher (vgsales.csv)]' derivation='None' name='[none:Publisher (vgsales.csv):nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_433752959313432577]' derivation='Sum' name='[pcto:sum:Calculation_433752959313432577:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' type='PctTotal' />
+            </column-instance>
+            <column-instance column='[Calculation_433752959313432577]' derivation='Sum' name='[sum:Calculation_433752959313432577:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Publisher (vgsales.csv):nk]'>
+            <groupfilter count='5' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='SUM([Global_Sales])' function='order' user:ui-marker='order'>
+                <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+                  <groupfilter function='level-members' level='[none:Publisher (vgsales.csv):nk]' />
+                  <groupfilter function='member' level='[none:Publisher (vgsales.csv):nk]' member='%null%' />
+                </groupfilter>
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0ay1jk104t6aif146fcks1npqv63].[none:Publisher (vgsales.csv):nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <encodings>
+              <color column='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Publisher (vgsales.csv):nk]' />
+              <size column='[federated.0ay1jk104t6aif146fcks1npqv63].[sum:Calculation_433752959313432577:qk]' />
+              <wedge-size column='[federated.0ay1jk104t6aif146fcks1npqv63].[sum:Calculation_433752959313432577:qk]' />
+              <text column='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Publisher (vgsales.csv):nk]' />
+              <text column='[federated.0ay1jk104t6aif146fcks1npqv63].[pcto:sum:Calculation_433752959313432577:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{133858BF-5E6D-484D-A0CF-6AAFC80A9CC8}' />
+    </worksheet>
+    <worksheet name='Total Sales by years &amp; Genres'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='game_reviews+' name='federated.0ay1jk104t6aif146fcks1npqv63' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Sales Across Countries' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;NA Sales&quot;'>
+              <calculation class='tableau' formula='&quot;NA Sales&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0ay1jk104t6aif146fcks1npqv63'>
+            <column caption='Sales' datatype='real' name='[Calculation_433752959313432577]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='case [Parameters].[Parameter 1]&#13;&#10;when &quot;EU Sales&quot; then [EU_Sales]&#13;&#10;when &quot;JP Sales&quot; Then [JP_Sales]&#13;&#10;when &quot;NA Sales&quot; then [NA_Sales]&#13;&#10;when &quot;other Sales&quot; then [Other_Sales]&#13;&#10;when &quot;Global Sales&quot; then [Global_Sales]&#13;&#10;END' />
+            </column>
+            <column caption='EU Sales' datatype='real' name='[EU_Sales]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Genre]' role='dimension' type='nominal' />
+            <column caption='Global Sales' datatype='real' name='[Global_Sales]' role='measure' type='quantitative' />
+            <column caption='JP Sales' datatype='real' name='[JP_Sales]' role='measure' type='quantitative' />
+            <column caption='NA Sales' datatype='real' name='[NA_Sales]' role='measure' type='quantitative' />
+            <column caption='Other Sales' datatype='real' name='[Other_Sales]' role='measure' type='quantitative' />
+            <column datatype='date' name='[Year]' role='dimension' type='quantitative' />
+            <column-instance column='[Genre]' derivation='None' name='[none:Genre:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_433752959313432577]' derivation='Sum' name='[sum:Calculation_433752959313432577:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Year]' derivation='Year-Trunc' name='[tyr:Year:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Genre:nk]'>
+            <groupfilter function='level-members' level='[none:Genre:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='quantitative' column='[federated.0ay1jk104t6aif146fcks1npqv63].[tyr:Year:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.0ay1jk104t6aif146fcks1npqv63].[tyr:Year:qk]</column>
+            <column>[federated.0ay1jk104t6aif146fcks1npqv63].[none:Genre:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='1' field='[federated.0ay1jk104t6aif146fcks1npqv63].[sum:Calculation_433752959313432577:qk]' field-type='quantitative' fold='true' scope='rows' type='space' />
+            <format attr='title' class='0' field='[federated.0ay1jk104t6aif146fcks1npqv63].[sum:Calculation_433752959313432577:qk]' scope='rows' value='' />
+            <format attr='title' class='1' field='[federated.0ay1jk104t6aif146fcks1npqv63].[sum:Calculation_433752959313432577:qk]' scope='rows' value='' />
+            <format attr='title' class='0' field='[federated.0ay1jk104t6aif146fcks1npqv63].[tyr:Year:qk]' scope='cols' value='' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0ay1jk104t6aif146fcks1npqv63].[sum:Calculation_433752959313432577:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0ay1jk104t6aif146fcks1npqv63].[sum:Calculation_433752959313432577:qk]' y-index='1'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Genre:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0ay1jk104t6aif146fcks1npqv63].[sum:Calculation_433752959313432577:qk] + [federated.0ay1jk104t6aif146fcks1npqv63].[sum:Calculation_433752959313432577:qk])</rows>
+        <cols>[federated.0ay1jk104t6aif146fcks1npqv63].[tyr:Year:qk]</cols>
+      </table>
+      <simple-id uuid='{8FB494D5-1F51-4F45-8DF5-02D83D367D0F}' />
+    </worksheet>
+    <worksheet name='Which year has highest critic and user scores'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='game_reviews+' name='federated.0ay1jk104t6aif146fcks1npqv63' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0ay1jk104t6aif146fcks1npqv63'>
+            <column caption='Critic Score' datatype='real' name='[Critic_Score]' role='measure' type='quantitative' />
+            <column caption='User Score' datatype='real' name='[User_Score]' role='measure' type='quantitative' />
+            <column datatype='date' name='[Year]' role='dimension' type='quantitative' />
+            <column-instance column='[Critic_Score]' derivation='Sum' name='[sum:Critic_Score:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[User_Score]' derivation='Sum' name='[sum:User_Score:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Year]' derivation='Year-Trunc' name='[tyr:Year:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.0ay1jk104t6aif146fcks1npqv63].[tyr:Year:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.0ay1jk104t6aif146fcks1npqv63].[tyr:Year:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0ay1jk104t6aif146fcks1npqv63].[sum:User_Score:qk]' field-type='quantitative' fold='true' scope='rows' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0ay1jk104t6aif146fcks1npqv63].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0ay1jk104t6aif146fcks1npqv63].[sum:Critic_Score:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0ay1jk104t6aif146fcks1npqv63].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0ay1jk104t6aif146fcks1npqv63].[sum:User_Score:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0ay1jk104t6aif146fcks1npqv63].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.0ay1jk104t6aif146fcks1npqv63].[sum:Critic_Score:qk] + [federated.0ay1jk104t6aif146fcks1npqv63].[sum:User_Score:qk])</rows>
+        <cols>[federated.0ay1jk104t6aif146fcks1npqv63].[tyr:Year:qk]</cols>
+      </table>
+      <simple-id uuid='{D6EBCD53-A825-47CA-9129-C583836F8747}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dashboard 1'>
+      <style />
+      <size sizing-mode='automatic' />
+      <datasources>
+        <datasource name='Parameters' />
+        <datasource caption='game_reviews+' name='federated.0ay1jk104t6aif146fcks1npqv63' />
+      </datasources>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Sales Across Countries' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;NA Sales&quot;'>
+          <calculation class='tableau' formula='&quot;NA Sales&quot;' />
+          <members>
+            <member value='&quot;NA Sales&quot;' />
+            <member value='&quot;JP Sales&quot;' />
+            <member value='&quot;Other Sales&quot;' />
+            <member value='&quot;EU Sales&quot;' />
+            <member value='&quot;Global Sales&quot;' />
+          </members>
+        </column>
+      </datasource-dependencies>
+      <datasource-dependencies datasource='federated.0ay1jk104t6aif146fcks1npqv63'>
+        <column datatype='string' name='[Genre]' role='dimension' type='nominal' />
+        <column-instance column='[Genre]' derivation='None' name='[none:Genre:nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98014' id='7' param='horz' type-v2='layout-flow' w='99002' x='499' y='993'>
+            <zone h='98014' id='5' type-v2='layout-basic' w='89027' x='499' y='993'>
+              <zone h='49007' id='3' name='Total Sales by years &amp; Genres' w='44512' x='499' y='993'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49007' id='11' name='Top 5 publisher across global sales ' w='44515' x='45011' y='993'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49007' id='16' name='Top 10 Sales by Genre' w='44514' x='45012' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49007' id='17' name='Global sales across Platform' w='44513' x='499' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='98014' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='9975' x='89526' y='993'>
+              <zone h='8685' id='8' mode='checkdropdown' name='Total Sales by years &amp; Genres' param='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Genre:nk]' type-v2='filter' w='9975' x='89526' y='993'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='31078' id='9' name='Total Sales by years &amp; Genres' pane-specification-id='2' param='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Genre:nk]' type-v2='color' w='9975' x='89526' y='9678'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='7445' id='10' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='9975' x='89526' y='40756'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='19727' id='12' name='Top 5 publisher across global sales ' pane-specification-id='0' param='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Publisher (vgsales.csv):nk]' type-v2='color' w='9975' x='89526' y='48201'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='31079' id='18' name='Global sales across Platform' pane-specification-id='0' param='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Platform:nk]' type-v2='color' w='9975' x='89526' y='67928'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1500' minheight='1500' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='22' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98014' id='21' param='vert' type-v2='layout-flow' w='99002' x='499' y='993'>
+                <zone h='8685' id='8' mode='checkdropdown' name='Total Sales by years &amp; Genres' param='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Genre:nk]' type-v2='filter' w='9975' x='89526' y='993'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49007' id='3' is-fixed='true' name='Total Sales by years &amp; Genres' w='44512' x='499' y='993'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='31078' id='9' name='Total Sales by years &amp; Genres' pane-specification-id='2' param='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Genre:nk]' type-v2='color' w='9975' x='89526' y='9678'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49007' id='11' is-fixed='true' name='Top 5 publisher across global sales ' w='44515' x='45011' y='993'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='19727' id='12' name='Top 5 publisher across global sales ' pane-specification-id='0' param='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Publisher (vgsales.csv):nk]' type-v2='color' w='9975' x='89526' y='48201'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='7445' id='10' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='9975' x='89526' y='40756'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49007' id='17' is-fixed='true' name='Global sales across Platform' w='44513' x='499' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='31079' id='18' name='Global sales across Platform' pane-specification-id='0' param='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Platform:nk]' type-v2='color' w='9975' x='89526' y='67928'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49007' id='16' is-fixed='true' name='Top 10 Sales by Genre' w='44514' x='45012' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{C4B7DD02-52D1-4D69-8FDE-4FC4AE483022}' />
+    </dashboard>
+    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dashboard 2'>
+      <style />
+      <size sizing-mode='automatic' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98014' id='7' param='horz' type-v2='layout-flow' w='99002' x='499' y='993'>
+            <zone h='98014' id='5' type-v2='layout-basic' w='89027' x='499' y='993'>
+              <zone h='98014' id='3' name='Number of Games launced over the years' w='44513' x='499' y='993'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='98014' id='9' name='Which year has highest critic and user scores' w='44514' x='45012' y='993'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='98014' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='9975' x='89526' y='993'>
+              <zone h='10050' id='8' name='Number of Games launced over the years' pane-specification-id='0' param='[federated.0ay1jk104t6aif146fcks1npqv63].[ctd:Game:qk]' type-v2='color' w='9975' x='89526' y='993'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='10422' id='10' name='Which year has highest critic and user scores' pane-specification-id='1' param='[federated.0ay1jk104t6aif146fcks1npqv63].[:Measure Names]' type-v2='color' w='9975' x='89526' y='11043'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='750' minheight='750' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='14' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98014' id='13' param='vert' type-v2='layout-flow' w='99002' x='499' y='993'>
+                <zone fixed-size='280' h='98014' id='3' is-fixed='true' name='Number of Games launced over the years' w='44513' x='499' y='993'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='10050' id='8' name='Number of Games launced over the years' pane-specification-id='0' param='[federated.0ay1jk104t6aif146fcks1npqv63].[ctd:Game:qk]' type-v2='color' w='9975' x='89526' y='993'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='98014' id='9' is-fixed='true' name='Which year has highest critic and user scores' w='44514' x='45012' y='993'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='10422' id='10' name='Which year has highest critic and user scores' pane-specification-id='1' param='[federated.0ay1jk104t6aif146fcks1npqv63].[:Measure Names]' type-v2='color' w='9975' x='89526' y='11043'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{6E996DD9-053D-4A0F-9BA2-EAAC12207F86}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='44'>
+    <window class='worksheet' maximized='true' name='Which year has highest critic and user scores'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.0ay1jk104t6aif146fcks1npqv63].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{37D1D329-3256-471B-9614-2E79F153607D}' />
+    </window>
+    <window class='worksheet' name='Global sales across Platform'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Platform:nk]' type='color' />
+            <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{6E3945F4-D6BC-4D82-A5C8-267B3F936891}' />
+    </window>
+    <window class='worksheet' name='Top 10 Sales by Genre'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
+            <card pane-specification-id='0' param='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Genre:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{A424D236-869C-4DC0-86A7-148907A774A8}' />
+    </window>
+    <window class='worksheet' name='Number of Games launced over the years'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0ay1jk104t6aif146fcks1npqv63].[ctd:Game:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{AF5C08BA-9470-47CD-AAA3-4A9806ADF0BE}' />
+    </window>
+    <window class='worksheet' name='Top 5 publisher across global sales '>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Publisher (vgsales.csv):nk]' type='color' />
+            <card pane-specification-id='0' param='[federated.0ay1jk104t6aif146fcks1npqv63].[sum:Calculation_433752959313432577:qk]' type='size' />
+            <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{D484916D-C84E-4DFA-BDBF-64CE933A7D9E}' />
+    </window>
+    <window class='worksheet' name='Total Sales by years &amp; Genres'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='checkdropdown' param='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Genre:nk]' type='filter' />
+            <card pane-specification-id='2' param='[federated.0ay1jk104t6aif146fcks1npqv63].[none:Genre:nk]' type='color' />
+            <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{7F22EAF2-9834-4B0B-9860-4CABDA80B00D}' />
+    </window>
+    <window class='dashboard' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Global sales across Platform'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Top 10 Sales by Genre'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Top 5 publisher across global sales '>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Total Sales by years &amp; Genres'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='17' />
+      <simple-id uuid='{41C8F961-A968-4C6C-960E-3239EEEE8E24}' />
+    </window>
+    <window class='dashboard' name='Dashboard 2'>
+      <viewpoints>
+        <viewpoint name='Number of Games launced over the years'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Which year has highest critic and user scores'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='6' />
+      <simple-id uuid='{3909C955-CC3E-4190-A093-393500A68FF7}' />
+    </window>
+  </windows>
+</workbook>
